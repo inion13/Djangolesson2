@@ -8,16 +8,16 @@
 <body>
     <div>
         <p>
-            <a href="..">Home</a>
+            <a href="{% url 'home' %}">Home</a>
             <a> / </a>
             <strong>Items</strong>
             <a> / </a>
-            <a href="../about">About</a>
+            <a href="{% url 'about' %}">About</a>
         </p>
         <p>Список продуктов:</p>
         <ul>
-            {% for product in iter %}
-                <li><a href="../item/">{{ product }}</a></li>
+            {% for product in items %}
+                <li><a href="{% url 'item' item_id=product.id %}">{{ product.name }}</a></li>
             {% endfor %}
         </ul>
     </div>

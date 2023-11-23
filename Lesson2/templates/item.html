@@ -8,13 +8,13 @@
 <body>
     <div>
         <p>
-            <a href="..">Home</a>
+            <a href="{% url 'home' %}">Home</a>
             <a> / </a>
-            <a href="../items">Items</a>
+            <a href="{% url 'items' %}">Items</a>
             <a> / </a>
-            <a href="../about">About</a>
+            <a href="{% url 'about' %}">About</a>
         </p>
-        <p>Название: {{ name }}</p>
+        <p><strong>Название</strong>: {{ name }}</p>
         <p>Количество: {{ quantity }}</p>
     </div>
 </body>
