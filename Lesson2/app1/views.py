@@ -1,4 +1,8 @@
+from http.client import HTTPResponse
+
+from django.http import HttpResponse
 from django.shortcuts import render
+from app1.models import Item
 
 items = [
    {"id": 1, "name": "Кроссовки abibas", "quantity": 5},
@@ -36,3 +40,9 @@ def item(request, item_id):
 def get_items(request):
     global items
     return render(request, 'items.html', {'items': items})
+
+
+def fill(request):
+    item1 = Item(name='Молоко', quantity=5)
+    item1.save()
+    return HttpResponse('Успешно')
