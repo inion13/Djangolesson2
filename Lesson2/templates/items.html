@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div>
+        <p>
+            <a href="..">Home</a>
+            <a> / </a>
+            <strong>Items</strong>
+            <a> / </a>
+            <a href="../about">About</a>
+        </p>
+        <p>Список продуктов:</p>
+        <ul>
+            {% for product in iter %}
+                <li><a href="../item/">{{ product }}</a></li>
+            {% endfor %}
+        </ul>
+    </div>
+</body>
+</html>
