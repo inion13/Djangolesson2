@@ -35,13 +35,4 @@ def item(request, item_id):
 
 def get_items(request):
     global items
-    result = {}
-    products = []
-    item_ids = []
-    for i in items:
-        products.append(i['name'])
-        item_ids.append(i['id'])
-    result['iter'] = products
-    result['ids'] = item_ids
-    return render(request, 'items.html', result)
-
+    return render(request, 'items.html', {'items': items})
