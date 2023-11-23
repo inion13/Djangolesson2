@@ -15,7 +15,7 @@ def home(request):
 
 
 def about(request):
-    context = {'name': 'Anton', 'phone_number': '89021710101', 'email': 'inion13@gmail.com'}
+    context = {'name': 'Anton', 'phone_number': '890211111111', 'email': 'inion@gmail.com'}
     return render(request, 'about.html', context)
 
 
