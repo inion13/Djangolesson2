@@ -56,7 +56,7 @@ def create_item(request):
 
 
 def read_item(request, item_id):
-    item = Item.objects.filter(pk=item_id).first()  # pk - это primary key
+    item = Item.objects.filter(pk=item_id).first()
     result = f'{item.name} Количество {item.quantity} Цена {item.price}'
     return HttpResponse(result)
 
