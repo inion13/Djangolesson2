@@ -51,23 +51,25 @@ def fill(request):
 def create_item(request):
     item = Item(name='Молоко', quantity=5, price=500)
     item.save()
-    return HttpResponse(item.__dict__)
+    result = f'{item.name} Количество {item.quantity} Цена {item.price}'
+    return HttpResponse(result)
 
 
 def read_item(request, item_id):
     item = Item.objects.filter(pk=item_id).first()  # pk - это primary key
-    return HttpResponse(item.__dict__)
+    result = f'{item.name} Количество {item.quantity} Цена {item.price}'
+    return HttpResponse(result)
 
 
 def update_item(request, item_id):
     item = Item.objects.filter(pk=item_id).first()
     item.name = 'Гвозди'
     item.save()
-    return HttpResponse(item.__dict__)
+    result = f'{item.name} Количество {item.quantity} Цена {item.price}'
+    return HttpResponse(result)
 
 
 def delete_item(request, item_id):
     item = Item.objects.filter(pk=item_id).first()  # pk - это primary key
-    item.name = 'Гвозди'
-    item.save()
-    return HttpResponse(item.__dict__)
+    item.delete()
+    return HttpResponse('Успешно')
