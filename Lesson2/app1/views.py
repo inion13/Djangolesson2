@@ -43,6 +43,31 @@ def get_items(request):
 
 
 def fill(request):
-    item1 = Item(name='Молоко', quantity=5)
-    item1.save()
+    item = Item(name='Молоко', quantity=5)
+    item.save()
     return HttpResponse('Успешно')
+
+
+def create_item(request):
+    item = Item(name='Молоко', quantity=5, price=500)
+    item.save()
+    return HttpResponse(item.__dict__)
+
+
+def read_item(request, item_id):
+    item = Item.objects.filter(pk=item_id).first()  # pk - это primary key
+    return HttpResponse(item.__dict__)
+
+
+def update_item(request, item_id):
+    item = Item.objects.filter(pk=item_id).first()
+    item.name = 'Гвозди'
+    item.save()
+    return HttpResponse(item.__dict__)
+
+
+def delete_item(request, item_id):
+    item = Item.objects.filter(pk=item_id).first()  # pk - это primary key
+    item.name = 'Гвозди'
+    item.save()
+    return HttpResponse(item.__dict__)
